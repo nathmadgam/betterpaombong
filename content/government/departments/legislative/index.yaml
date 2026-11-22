@@ -1,0 +1,25 @@
+# legislative Department Pages
+# This file contains all the pages/governments/departments/legislative available under the Department
+#
+layout: grid
+title: 'Sangguniang Bayan of Paombong'
+description: 'Members of the Sangguniang Bayan (Municipal Council) for the 2025 to 2028 term. Source: Provincial Government of Bulacan.'
+pages:
+  - name: 'Alfredo B. Castro, Jr.'
+    description: 'Vice Mayor and Presiding Officer'
+  - name: 'John Raymond A. Marcaida'
+    description: 'Councilor'
+  - name: 'Alexander C. Bernardo'
+    description: 'Councilor'
+  - name: 'Christian V. Coronel'
+    description: 'Councilor'
+  - name: 'Marvin D. Bautista'
+    description: 'Councilor'
+  - name: 'Mervin C. Galman'
+    description: 'Councilor'
+  - name: 'Paulo Mari S. De Jesus'
+    description: 'Councilor'
+  - name: 'Gian Carlo G. Valencia'
+    description: 'Councilor'
+  - name: 'Zoilo G. Estrella'
+    description: 'Councilor'
