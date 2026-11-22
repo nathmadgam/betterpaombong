@@ -22,6 +22,7 @@ export default defineConfig(({ mode }) => {
     if (!env[key]) process.env[key] = value;
   }
   return {
+    base: process.env.BASE_PATH || '/',
     plugins: [react(), tailwindcss()],
     assetsInclude: ['**/*.md'],
   };

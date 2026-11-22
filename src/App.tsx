@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 function App() {
   return (
     <HelmetProvider>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <NuqsAdapter>
           <div className="min-h-screen flex flex-col">
             <Navbar />

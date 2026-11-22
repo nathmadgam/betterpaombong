@@ -49,8 +49,8 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="mt-4 max-w-[340px] leading-relaxed text-white/60">
-              A volunteer-run portal with information and services for the people of
-              Paombong, Bulacan. Not an official government website.
+              A volunteer-run portal with information and services for the
+              people of Paombong, Bulacan. Not an official government website.
             </p>
             <div className="mt-6 flex gap-4">
               {footerNavigation.socialLinks.map(link => (
@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
             <Link to="/sitemap" className={linkClass}>
               Sitemap
             </Link>
-            <a href="/accessibility" className={linkClass}>
+            <Link to="/accessibility" className={linkClass}>
               Accessibility
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
