@@ -27,7 +27,11 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
-      # Serve the app for deep links such as /government/departments/executive
+      # GitHub Pages has no rewrite rules, so every page gets its own HTML file.
+      # Without one, a deep link such as /government/departments/executive
+      # shows the page but answers 404, and search engines skip it.
+      - run: node scripts/write-route-pages.mjs
+      # Any other address still opens the app, which shows a "not found" notice
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
