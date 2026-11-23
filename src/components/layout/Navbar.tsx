@@ -15,7 +15,7 @@ import { isMeilisearchEnabled } from '../../lib/meilisearch';
 import Container from '../ui/Container';
 
 const utilityLinks = [
-  { label: 'Join Us', href: 'https://bettergov.ph/join-us' },
+  { label: 'Join Us', href: 'https://about.bettergov.ph/volunteer' },
   { label: 'About BetterGov', href: 'https://bettergov.ph/about' },
   { label: 'Official Gov.ph', href: 'https://www.gov.ph' },
   { label: 'Hotlines', href: 'https://bettergov.ph/philippines/hotlines' },

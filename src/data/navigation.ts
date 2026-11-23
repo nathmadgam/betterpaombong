@@ -37,7 +37,7 @@ export const footerNavigation = {
         // { label: 'Terms of Use', href: '/terms' },
         { label: 'Accessibility', href: '/accessibility' },
         { label: 'Contact Us', href: '/about' },
-        { label: 'Community Discord', href: '/discord' },
+        { label: 'Community Discord', href: 'https://discord.gg/bettergovph' },
       ],
     },
     {
@@ -50,8 +50,15 @@ export const footerNavigation = {
             label: category.category,
             href: `/services/${category.slug}`,
           })),
-        { label: 'Hotlines', href: '/philippines/hotlines' },
-        { label: 'Holidays', href: '/philippines/holidays' },
+        // National pages kept by BetterGov.ph; this portal has no copy of them
+        {
+          label: 'Hotlines',
+          href: 'https://bettergov.ph/philippines/hotlines',
+        },
+        {
+          label: 'Holidays',
+          href: 'https://bettergov.ph/philippines/holidays',
+        },
       ],
     },
     {
