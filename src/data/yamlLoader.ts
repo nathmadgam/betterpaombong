@@ -20,10 +20,17 @@ export interface CategoryData {
   description: string;
 }
 
+/** A public source for the facts on a page, shown as a link under the listing. */
+export interface SourceLink {
+  label: string;
+  url: string;
+}
+
 export interface CategoryIndexData {
   title?: string;
   description?: string;
   layout?: 'grid' | 'list';
+  sources?: SourceLink[];
   pages: Subcategory[];
 }
 
@@ -74,6 +81,7 @@ export interface CategoryIndex {
   title?: string;
   description?: string;
   layout: 'grid' | 'list';
+  sources?: SourceLink[];
   pages: Subcategory[];
 }
 
@@ -93,6 +101,7 @@ export async function loadCategoryIndex(
       title: indexData.title,
       description: indexData.description,
       layout: indexData.layout ?? 'list',
+      sources: indexData.sources,
       pages: indexData.pages || [],
     };
   } catch (parseError) {

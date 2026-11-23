@@ -3,7 +3,10 @@
 #
 layout: grid
 title: 'Sangguniang Bayan of Paombong'
-description: 'Members of the Sangguniang Bayan (Municipal Council) for the 2025 to 2028 term. Source: Provincial Government of Bulacan.'
+description: 'Members of the Sangguniang Bayan (Municipal Council) for the 2025 to 2028 term.'
+sources:
+  - label: 'Provincial Government of Bulacan, Paombong page'
+    url: 'https://bulacan.gov.ph/cities-and-municipalities/paombong/'
 pages:
   - name: 'Alfredo B. Castro, Jr.'
     description: 'Vice Mayor and Presiding Officer'

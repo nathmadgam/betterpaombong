@@ -5,7 +5,7 @@ import { Text } from '../components/ui/Text';
 import Notice from '../components/ui/Notice';
 import PageList from '../components/sections/PageList';
 import { useParams } from 'react-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -55,9 +55,10 @@ export default function Document({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const markdownComponents = createMarkdownComponents(
-    getTypographyTheme(initialTheme)
-  );
+  const typographyTheme = getTypographyTheme(initialTheme);
+  const markdownComponents = createMarkdownComponents(typographyTheme);
+  // Source links under a listing look the same as links in an article
+  const sourceLinkClass = typographyTheme.components.a;
 
   const [breadcrumbs, setBreadcrumbs] = useState([
     { label: 'Home', href: '/' },
@@ -181,6 +182,25 @@ export default function Document({
             </div>
           )}
           <PageList pages={nestedIndex.pages} layout={nestedIndex.layout} />
+          {nestedIndex.sources && nestedIndex.sources.length > 0 && (
+            <Text className="mt-8 italic">
+              {nestedIndex.sources.length > 1 ? 'Sources: ' : 'Source: '}
+              {nestedIndex.sources.map((source, i) => (
+                <Fragment key={source.url}>
+                  {i > 0 && ', '}
+                  <a
+                    href={source.url}
+                    className={sourceLinkClass}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {source.label}
+                  </a>
+                </Fragment>
+              ))}
+              .
+            </Text>
+          )}
         </Section>
       </>
     );
