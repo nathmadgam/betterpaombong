@@ -19,10 +19,11 @@ export default function SEO({
   type = 'website',
   siteName = import.meta.env.VITE_GOVERNMENT_NAME || 'Local Government Website',
 }: SEOProps) {
-  const defaultTitle = `${siteName} - Official Government Website`;
+  // This is a community-run portal, so the fallbacks must not call it official
+  const defaultTitle = `${siteName} - Community-run Portal`;
   const defaultDescription =
     import.meta.env.VITE_SITE_DESCRIPTION ||
-    `Official website of ${siteName}. Access government services, information, and resources.`;
+    `Community-run portal for ${siteName}. Find local government services, information, and resources.`;
   const defaultKeywords =
     import.meta.env.VITE_SITE_KEYWORDS ||
     'government, local government, services, public services, civic services';
