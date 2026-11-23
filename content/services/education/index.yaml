@@ -2,6 +2,10 @@
 # This file contains all the pages/services available under the Education category
 
 pages:
+  - name: 'Schools in Paombong'
+    slug: 'schools-in-paombong'
+    description: 'Public and private elementary and high schools in Paombong, by barangay and level.'
+
   - name: 'Enroll children in LGU daycare or preschool programs'
     slug: 'enroll-children-in-lgu-daycare-or-preschool-programs'
     description: 'Information about enrolling your children in local government daycare and preschool programs.'

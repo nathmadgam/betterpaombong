@@ -8,3 +8,6 @@ pages:
   - name: 'Legislative'
     slug: 'legislative'
     description: 'The Sangguniang Bayan (Municipal Council) of Paombong for the 2025 to 2028 term, presided over by the Vice Mayor.'
+  - name: 'Municipal Offices'
+    slug: 'municipal-offices'
+    description: 'Who heads each municipal office, where to find it, and the number to call.'

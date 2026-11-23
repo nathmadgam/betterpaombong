@@ -45,10 +45,12 @@ Residents, schools and organizations may invite the Mayor to community activitie
 # Contact the Mayor's Office
 
 **Office of the Mayor**
-Municipal Hall, Poblacion, Paombong, Bulacan 3001
+2nd Floor, Main Building, Municipal Hall, Poblacion, Paombong, Bulacan 3001
 
-**Telephone:** (044) 760-5044
+**Telephone:** (044) 794-0052 (municipal website) or (044) 760-5044 (provincial website)
+
+For the other offices, see [municipal offices and contact numbers](municipal-offices).
 
 ---
 
-_Sources: [Provincial Government of Bulacan, Paombong page](https://bulacan.gov.ph/cities-and-municipalities/paombong/). Spotted an error? [Open an issue](https://github.com/nathmadgam/betterpaombong/issues)._
+_Sources: [Provincial Government of Bulacan, Paombong page](https://bulacan.gov.ph/cities-and-municipalities/paombong/), [Municipality of Paombong, Contact Us page](https://paombong.gov.ph/contact-us/). Spotted an error? [Open an issue](https://github.com/nathmadgam/betterpaombong/issues)._

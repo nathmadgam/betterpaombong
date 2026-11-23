@@ -2,6 +2,10 @@
 # This file contains all the pages/services available under the Health Services category
 
 pages:
+  - name: 'Find a health center, clinic or hospital'
+    slug: 'find-a-health-center-clinic-or-hospital'
+    description: 'Rural health units, barangay health stations, birthing clinics and the hospital in Paombong, with locations and phone numbers.'
+
   - name: 'Get free check-ups, basic medicines, and vaccines'
     slug: 'get-free-check-ups-basic-medicines-and-vaccines'
     description: 'Access free medical check-ups, basic medicines, and vaccination services provided by your local government.'
