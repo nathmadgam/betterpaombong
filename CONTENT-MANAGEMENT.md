@@ -34,12 +34,13 @@ This guide will help you edit and manage content for the Better Local Government
 
 ## Understanding the Content Structure
 
-The website content is organized in two main sections under the `content` folder at the root level of the repository (not inside the `src` folder):
+The website content is organized in three sections under the `content` folder at the root level of the repository (not inside the `src` folder):
 
 ```
 content/
 ├── government/
 │   └── departments/         # Executive, legislative, and other department pages
+├── pages/                   # Standalone pages: about.md is the /about page
 └── services/
     ├── agriculture-fisheries/
     ├── business/
@@ -52,6 +53,8 @@ content/
     ├── infrastructure-public-works/
     └── social-welfare/
 ```
+
+A file in `content/pages/` is a page of its own, outside Services and Government. It needs no index file: `content/pages/about.md` is shown at `/about`.
 
 ### Three Types of Files
 

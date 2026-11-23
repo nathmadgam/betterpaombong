@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Document from './pages/Document';
 import Government from './pages/Government';
 import Search from './pages/Search';
+import Sitemap from './pages/Sitemap';
 import { isMeilisearchEnabled } from './lib/meilisearch';
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
@@ -36,7 +37,9 @@ function App() {
               {isMeilisearchEnabled && (
                 <Route path="/search" element={<Search />} />
               )}
+              <Route path="/sitemap" element={<Sitemap />} />
               <Route path="/:lang/:documentSlug" element={<Document />} />
+              {/* Standalone pages from content/pages, such as /about */}
               <Route path="/:documentSlug" element={<Document />} />
             </Routes>
             <Footer />

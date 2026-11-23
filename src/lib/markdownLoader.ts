@@ -56,6 +56,42 @@ function splitHeader(content: string): {
   return { title: heading[1].trim(), description, body: rest };
 }
 
+/** Fills in the placeholders and splits the title and lede from the body. */
+function parseMarkdown(
+  raw: string,
+  data: Record<string, unknown> = {}
+): MarkdownContent {
+  const content = interpolate(raw, data);
+
+  const header = splitHeader(content);
+  // Fall back to the first `# Heading` anywhere if the file doesn't open
+  // with one
+  const title = header.title ?? content.match(/^#\s+(.+)$/m)?.[1];
+
+  return {
+    content,
+    body: header.body,
+    title,
+    description: header.description,
+    data,
+  };
+}
+
+/**
+ * Loads a page that sits outside the Services and Government sections, such
+ * as /about, from content/pages/<slug>.md.
+ */
+export async function loadPageContent(
+  pageSlug: string
+): Promise<MarkdownContent> {
+  try {
+    const module = await import(`../../content/pages/${pageSlug}.md?raw`);
+    return parseMarkdown(module.default);
+  } catch (error) {
+    throw new Error(`Document not found: ${pageSlug}`, { cause: error });
+  }
+}
+
 /**
  * Loads markdown content from the appropriate content directory.
  * Also attempts to load a companion JSON file (same slug) for template
@@ -86,20 +122,7 @@ export async function loadMarkdownContent(
     const module = await import(
       `../../content/${dir}/${categorySlug}/${documentSlug}.md?raw`
     );
-    const content = interpolate(module.default, data);
-
-    const header = splitHeader(content);
-    // Fall back to the first `# Heading` anywhere if the file doesn't open
-    // with one
-    const title = header.title ?? content.match(/^#\s+(.+)$/m)?.[1];
-
-    return {
-      content,
-      body: header.body,
-      title,
-      description: header.description,
-      data,
-    };
+    return parseMarkdown(module.default, data);
   } catch (error) {
     console.error(
       `Failed to load markdown content for document: ${documentSlug}`,

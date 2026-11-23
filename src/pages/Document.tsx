@@ -10,6 +10,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
   loadMarkdownContent,
+  loadPageContent,
   type MarkdownContent,
 } from '../lib/markdownLoader';
 import { createMarkdownComponents } from '../lib/markdownComponents';
@@ -48,7 +49,7 @@ export default function Document({
   theme: initialTheme = 'default',
   categoryType,
 }: DocumentProps) {
-  const { documentSlug, category } = useParams();
+  const { documentSlug, category, lang } = useParams();
   const [markdownContent, setMarkdownContent] =
     useState<MarkdownContent | null>(null);
   const [nestedIndex, setNestedIndex] = useState<CategoryIndex | null>(null);
@@ -65,7 +66,7 @@ export default function Document({
   ]);
 
   useEffect(() => {
-    if (!documentSlug || !category || !categoryType) {
+    if (!documentSlug) {
       setError('No document specified');
       setLoading(false);
       return;
@@ -75,6 +76,27 @@ export default function Document({
       try {
         setLoading(true);
         setError(null);
+        // This component stays mounted when the route changes, so clear what
+        // the previous document left behind
+        setNestedIndex(null);
+        setMarkdownContent(null);
+
+        // A page outside Services and Government, such as /about. Nothing is
+        // translated yet, so a language prefix such as /fil/about is not one.
+        if (!category || !categoryType) {
+          if (lang) throw new Error(`Document not found: ${documentSlug}`);
+
+          const content = await loadPageContent(documentSlug);
+          setMarkdownContent(content);
+          setBreadcrumbs([
+            { label: 'Home', href: '/' },
+            {
+              label: content.title ?? humanize(documentSlug),
+              href: `/${documentSlug}`,
+            },
+          ]);
+          return;
+        }
 
         const isGovernment = categoryType === 'government';
         const categories = isGovernment
@@ -132,7 +154,7 @@ export default function Document({
     };
 
     loadContent();
-  }, [documentSlug, category, categoryType]);
+  }, [documentSlug, category, categoryType, lang]);
 
   const headings = useMemo(
     () => (markdownContent ? extractHeadings(markdownContent.body) : []),

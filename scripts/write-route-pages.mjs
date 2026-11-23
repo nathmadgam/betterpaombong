@@ -16,6 +16,9 @@
  *   content/<section>/<category>/index.yaml             the pages in a category
  *   content/<section>/<category>/<slug>.md              a page
  *   content/<section>/<category>/<slug>/index.yaml      a page that is a listing
+ *   content/pages/<slug>.md                             a standalone page, /<slug>
+ *
+ * Pages the app builds itself, such as /sitemap, are listed in APP_ROUTES.
  *
  * An address the site links to but has nothing to show for (a category with no
  * pages, a listed page with no content file) gets no HTML file. It keeps
@@ -25,7 +28,13 @@
  *   node scripts/write-route-pages.mjs
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import * as yaml from 'js-yaml';
@@ -39,6 +48,12 @@ const SECTIONS = [
   { path: 'government', categoriesFile: 'src/data/government.yaml' },
 ];
 
+// Pages with their own component in src/App.tsx
+const APP_ROUTES = ['/sitemap'];
+
+// Standalone pages: content/pages/about.md is served at /about
+const PAGES_DIR = 'content/pages';
+
 // Slugs become file names, so anything unusual is left out rather than written
 const SAFE_SLUG = /^[a-z0-9][a-z0-9-]*$/;
 
@@ -47,8 +62,15 @@ const readYaml = file => yaml.load(readFileSync(join(ROOT, file), 'utf8'));
 
 /** Sorts every address the content files link to into pages and dead ends. */
 function collectRoutes() {
-  const routes = [];
+  const routes = [...APP_ROUTES];
   const empty = [];
+
+  if (exists(PAGES_DIR)) {
+    for (const file of readdirSync(join(ROOT, PAGES_DIR)).sort()) {
+      const slug = file.replace(/\.md$/, '');
+      if (file.endsWith('.md') && SAFE_SLUG.test(slug)) routes.push(`/${slug}`);
+    }
+  }
 
   for (const section of SECTIONS) {
     routes.push(`/${section.path}`);
