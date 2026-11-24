@@ -1,0 +1,15 @@
+# Taxes and Clearances Category Pages
+# This file contains all the pages/services available under the Taxes and Clearances category
+
+pages:
+  - name: 'Get a community tax certificate (cedula)'
+    slug: 'get-a-community-tax-certificate-cedula'
+    description: "What to bring, how much it costs and the steps to get a cedula at the Municipal Treasurer's office."
+
+  - name: 'Pay real property tax (amilyar) and get a tax clearance'
+    slug: 'pay-real-property-tax-and-get-a-tax-clearance'
+    description: "How real property tax is computed and paid at the Municipal Treasurer's office, and how to get a real property tax clearance."
+
+  - name: "Get a Mayor's clearance"
+    slug: 'get-a-mayors-clearance'
+    description: "The requirements, the fee and the steps for a Mayor's clearance, and where the fee is paid."

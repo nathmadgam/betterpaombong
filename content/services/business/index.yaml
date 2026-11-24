@@ -17,3 +17,11 @@ pages:
   - name: 'Join trade fairs, business expos, or tourism promotions'
     slug: 'join-trade-fairs-business-expos-or-tourism-promotions'
     description: 'Participate in local trade fairs, business expos, and tourism promotion activities.'
+
+  - name: 'Apply for a tricycle franchise'
+    slug: 'apply-for-a-tricycle-franchise'
+    description: 'How tricycle drivers and operators apply for or renew a franchise, pay the fee and get a TODA ID.'
+
+  - name: 'Get a working permit'
+    slug: 'get-a-working-permit'
+    description: 'What employees who work in Paombong bring and pay for a working permit, also called an occupational permit.'
