@@ -3,9 +3,18 @@
  */
 
 import { type TypographyTheme } from './typographyThemes';
-import { type ReactNode, type HTMLAttributes } from 'react';
+import {
+  createContext,
+  useContext,
+  type ReactNode,
+  type HTMLAttributes,
+} from 'react';
 import { TableWithToggle } from './TableWithToggle';
 import { nodeText, slugify } from './headings';
+
+// Tells a list item whether it sits in a numbered list, so it can show its
+// number instead of a bullet
+const OrderedListContext = createContext(false);
 
 // Extended theme type to include dynamic component keys
 type ExtendedTheme = TypographyTheme & {
@@ -115,7 +124,9 @@ export function createMarkdownComponents(theme: TypographyTheme) {
       // For regular lists, use the theme styling
       return (
         <ul className={theme.components.ul} {...props}>
-          {children}
+          <OrderedListContext.Provider value={false}>
+            {children}
+          </OrderedListContext.Provider>
         </ul>
       );
     },
@@ -127,13 +138,17 @@ export function createMarkdownComponents(theme: TypographyTheme) {
         className={`${theme.components.ol} [counter-reset:list-item]`}
         {...props}
       >
-        {children}
+        <OrderedListContext.Provider value={true}>
+          {children}
+        </OrderedListContext.Provider>
       </ol>
     ),
-    li: ({
+    li: function ListItem({
       children,
       ...props
-    }: { children?: ReactNode } & HTMLAttributes<HTMLLIElement>) => {
+    }: { children?: ReactNode } & HTMLAttributes<HTMLLIElement>) {
+      const inOrderedList = useContext(OrderedListContext);
+
       // Check if this is a nested list item
       const isNested = props.className?.includes('nested') || false;
 
@@ -146,9 +161,9 @@ export function createMarkdownComponents(theme: TypographyTheme) {
       // Detect if this is a task list item
       const isTaskList = props.className?.includes('task-list-item');
 
-      // For now, we'll use a simple approach - detect if parent is ol
-      // This is a simplified approach - in a real implementation, you might want to use React context
-      const isOrderedList = props.className?.includes('ordered') || false;
+      // The enclosing ol or ul says which kind of list this item is in
+      const isOrderedList =
+        inOrderedList || props.className?.includes('ordered') || false;
 
       const finalClassName = isTaskList
         ? taskLiClass
