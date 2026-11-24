@@ -28,6 +28,12 @@ categories:
     description: "How to get a cedula or a Mayor's clearance, and how to pay real property tax (amilyar) and get a tax clearance."
     icon: 'Receipt'
 
+  # Civil Registry
+  - category: 'Civil Registry'
+    slug: 'civil-registry'
+    description: 'How to register a birth, marriage or death, apply for a marriage license, get copies of your certificates and correct a record.'
+    icon: 'FileBadge'
+
   # Social Welfare Services
   - category: 'Social Welfare'
     slug: 'social-welfare'

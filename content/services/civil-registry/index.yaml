@@ -1,0 +1,31 @@
+# Civil Registry Category Pages
+# This file contains all the pages/services available under the Civil Registry category
+
+pages:
+  - name: 'Register a birth'
+    slug: 'register-a-birth'
+    description: 'What to bring to register a birth on time, within 1 month, and what a late registration needs.'
+
+  - name: 'Apply for a marriage license and register a marriage'
+    slug: 'apply-for-a-marriage-license-and-register-a-marriage'
+    description: 'The requirements, fees and steps for a marriage license, the pre-marriage counseling session, and how a marriage is registered.'
+
+  - name: 'Register a death'
+    slug: 'register-a-death'
+    description: 'What to bring to register a death within 30 days, the burial and transfer fees, and what a late registration needs.'
+
+  - name: 'Get a copy of a birth, marriage or death certificate'
+    slug: 'get-a-copy-of-a-birth-marriage-or-death-certificate'
+    description: 'How to get a copy from the municipal civil registry or have a copy certified, with the fee and what to bring.'
+
+  - name: 'Have a record endorsed to the PSA'
+    slug: 'have-a-record-endorsed-to-the-psa'
+    description: 'What to do when the PSA has no copy of a record registered in Paombong: endorsement, and an advance copy for a new record.'
+
+  - name: 'Correct or complete a civil registry record'
+    slug: 'correct-or-complete-a-civil-registry-record'
+    description: 'How to correct a clerical error, a first name, the day or month of birth, or the sex without going to court, and how to add an entry that was left out.'
+
+  - name: "Use the father's surname, legitimation and court orders"
+    slug: 'use-the-fathers-surname-legitimation-and-court-orders'
+    description: "Acknowledgement of paternity, use of the father's surname, legitimation, and how a court order such as an annulment or adoption is recorded."

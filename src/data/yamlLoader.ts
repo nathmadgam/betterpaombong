@@ -43,6 +43,7 @@ import healthServicesIndex from '../../content/services/health-services/index.ya
 import educationIndex from '../../content/services/education/index.yaml?raw';
 import businessIndex from '../../content/services/business/index.yaml?raw';
 import taxesClearancesIndex from '../../content/services/taxes-clearances/index.yaml?raw';
+import civilRegistryIndex from '../../content/services/civil-registry/index.yaml?raw';
 import socialWelfareIndex from '../../content/services/social-welfare/index.yaml?raw';
 import agricultureFisheriesIndex from '../../content/services/agriculture-fisheries/index.yaml?raw';
 import infrastructurePublicWorksIndex from '../../content/services/infrastructure-public-works/index.yaml?raw';
@@ -59,6 +60,7 @@ const categoryIndexMap: { [key: string]: string } = {
   education: educationIndex,
   business: businessIndex,
   'taxes-clearances': taxesClearancesIndex,
+  'civil-registry': civilRegistryIndex,
   'social-welfare': socialWelfareIndex,
   'agriculture-fisheries': agricultureFisheriesIndex,
   'infrastructure-public-works': infrastructurePublicWorksIndex,
